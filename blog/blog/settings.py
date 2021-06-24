@@ -117,6 +117,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -162,7 +166,6 @@ LOGGING = {
     },
     'filters': {  # 对日志进行过滤
 
-
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue',  # django在debug模式下才输出日志
         },
@@ -190,7 +193,6 @@ LOGGING = {
             'propagate': True,  # 是否继续传递日志信息
             'level': 'INFO',  # 日志器接收的最低日志级别
         },
-
 
     }
 }
