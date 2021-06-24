@@ -14,21 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-import logging
-
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
-
-logger = logging.getLogger('django')
-
-
-def log(request):
-    logger.info('info')
-    return HttpResponse('test')
-
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', log),
+    # include 参数 urlconf_module, app_name = arg
+    # urlconf_module 子应用路由
+    # app_name 子应用名称
+
+    # path 参数  namespace 命名空间
+    path('', include(('users.urls', 'users'), namespace='users')),
 ]
