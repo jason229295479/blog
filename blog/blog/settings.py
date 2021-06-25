@@ -130,12 +130,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # redis配置
 
 CACHES = {
-    "default": {
+    "default": {  # 验证码
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/0",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "123456",
+            # "PASSWORD": "123456",
         }
     },
     "session": {
@@ -143,7 +143,7 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "123456",
+            #  "PASSWORD": "123456",
         }
     },
 }
@@ -197,3 +197,6 @@ LOGGING = {
 
     }
 }
+
+# 替换系统的user,来使用我们自定义的user
+AUTH_USER_MODEL = 'users.User'
