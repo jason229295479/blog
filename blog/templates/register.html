@@ -41,6 +41,8 @@
         <div class="col-12">
             <div class="col-6">
                 <form class="login" id="login_form" method="POST">
+                    <!--添加token-->
+                    {% csrf_token %}
                     <!--手机号-->
                     <div class="form-group">
                         <label >手机号: </label>
