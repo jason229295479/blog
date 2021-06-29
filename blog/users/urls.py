@@ -1,4 +1,4 @@
-# users子应用的试图路由
+# users子应用的视图路由
 from django.urls import path
 
 from users.views import RegisterView, ImageCodeView, SmsCodeView
